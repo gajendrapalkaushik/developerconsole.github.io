@@ -3,109 +3,110 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sustainable & afordable development | sustainablitiy.com </title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="CSS/phone.css">
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700;800&family=Satisfy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <nav id="navbar">
-        <div id="logo">
-            <img src="https://www.tesla.com/themes/custom/tesla_frontend/assets/favicons/favicon.ico" alt="" class="sustainability.com">
-            <img src="https://www.tesla.com/themes/custom/tesla_frontend/assets/favicons/favicon.ico" alt="" class="sustainability.com">
-        </div>
+    <script type="module">
+        import * as THREE from './build/three.module.js';
+        import { OrbitControls } from './OrbitControls.js';
+        import { GLTFLoader } from './GLTFLoader.js';
 
-        <ul>
-            <li class="item"><a href="#home">Home</a></li>
-            <li class="item"><a href="#services-conatiner">About Us</a></li>
-            <li class="item"><a href="#client-section">Our Clients</a></li>
-            <li class="item"><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+        let scene, camera, renderer;
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.CubeTextureLoader()
+                .setPath('/cubemap/').load([
+                    'front.png',
+                    'back.png',
+                    'top.png',
+                    'bottom.png',
+                    'left.png',
+                    'right.png'
+                ]);
 
-    <section id="home">
-        <h1 class="h-primary">Welcome to the sustainable community</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magnam impedit, suscipit dolorem accusamus consequuntur? Repellendus quod fugit deleniti eaque provident nisi, sed tempore minima quae aliquid, vitae, porro fuga corrupti cum facilis
-            veritatis!
-        </p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magnam impedit, suscipit dolorem accusamus consequuntur veritatis!
-        </p>
-        <button class="btn">Register Now</button>
-    </section>
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
 
-    <section id="services-conatainer">
-        <h1 class="h-primary center white" id="plan">Our Plan</h1>
-        <div id="services">
-            <div class="box orange white-bold"><img src="https://i.ibb.co/MN10FQx/Pngtree-windmill-environmental-energy-illustration-4609758.png" alt="">
-                <h2 class="h-secondary center">Execution</h2>
-                <p class="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni corrupti omnis ex reiciendis aliquam necessitatibus aspernatur quae quibusdam ipsam recusandae? Sequi, laboriosam deserunt? Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Voluptatum quisquam quos delectus consectetur perferendis a eius molestias facere, minima, atque excepturi corporis et! Incidunt quidem placeat consequatur distinctio assumenda labore esse nisi dolorum nulla.</p>
-            </div>
-            <div class="box yellow white-bold">
-                <img src="https://i.ibb.co/f2xKNh6/Pngtree-vector-solar-panel-icon-4140652.png" alt="">
-                <h2 class="h-secondary center">Execution</h2>
-                <p class="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, quam. Labore, libero totam voluptate deleniti corporis quo obcaecati assumenda dicta laborum veritatis consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Voluptatum quisquam quos delectus consectetur perferendis a eius molestias facere, minima, atque excepturi corporis et! Incidunt quidem placeat consequatur distinctio assumenda labore esse nisi dolorum nulla.</p>
-            </div>
-            <div class="box green white-bold">
-                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/41/sun-1837376_1280.png" alt="">
-                <h2 class="h-secondary center">Execution</h2>
-                <p class="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis blanditiis iusto ut voluptas architecto vero sint error, quasi laboriosam quo, a, placeat maiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quisquam
-                    quos delectus consectetur perferendis a eius molestias facere, minima, atque excepturi corporis et! Incidunt quidem placeat consequatur distinctio assumenda labore esse nisi dolorum nulla.</p>
-            </div>
-        </div>
-    </section>
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.set(0, 50, 200);
+            let controls = new OrbitControls(camera, renderer.domElement);
 
-    <section id="client-section">
-        <h1 class="h-primary , center , white">Our Clients</h1>
-        <div id="clients">
-            <div class="client-item">
-                <img src="http://pngimg.com/uploads/apple_logo/apple_logo_PNG19677.png" alt="Our client">
-            </div>
-            <div class="client-item">
-                <img src="http://pngimg.com/uploads/microsoft/microsoft_PNG14.png" alt="Our client">
-            </div>
-            <div class="client-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/800px-HP_logo_2012.svg.png" alt="Our client">
-            </div>
-            <div class="client-item">
-                <img src="http://pngimg.com/uploads/skype/skype_PNG14.png" alt="Our client">
-            </div>
-        </div>
-    </section>
-    <section id="contact">
-        <h1 class="h-primary center , white">Contact Us</h1>
-        <div id="contact-box">
-            <form action="">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter Your Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="name" id="email" placeholder="Enter Your Email">
-                </div>
-                <div class="form-group">
-                    <label for="mobileno.">Mobile No.</label>
-                    <input type="mobileno." name="name" id="mobileno." placeholder="Enter Your Mobile No.">
-                </div>
-                <div class="form-group">
-                    <label for="idea">Idea</label>
-                    <input type="idea" name="name" id="idea" placeholder="Enter Your Idea">
-                </div>
-            </form>
-        </div>
-    </section>
+            let ambientLight = new THREE.AmbientLight(0xaaaaaa);
+            scene.add(ambientLight);
 
-    <footer>
-        <div class="footer">
-            Copyright &copy; www.sustainability.com. All rights reserved!
-        </div>
-    </footer>
+            let directionalLight = new THREE.DirectionalLight(0xaaaaaa);
+            directionalLight.position.set(0, 1, 1);
+            scene.add(directionalLight);
+
+            let spotlight = new THREE.SpotLight(0xffffff, 2);
+            spotlight.position.set(600, 200, 50);
+            scene.add(spotlight);
+
+
+            let fontLoader = new THREE.FontLoader();
+            fontLoader.load('Impact_Regular.json', function (font) {
+                let geometrySetting = {
+                    font: font,
+                    size: 40,
+                    height: 5,
+                    curveSegments: 20,
+                    bevelEnabled: true,
+                    bevelThickness: 1,
+                    bevelSize: 0.5,
+                    bevelSegments: 20
+                };
+                let textGeoGame = new THREE.TextGeometry('Game', geometrySetting);
+                let textGeoStop = new THREE.TextGeometry('Stop', geometrySetting);
+
+                let textMatGame = new THREE.MeshLambertMaterial({ color: 0xcccccc });
+                let textMatStop = new THREE.MeshLambertMaterial({ color: 0xce2121 });
+
+                let textGame = new THREE.Mesh(textGeoGame, textMatGame);
+                let textStop = new THREE.Mesh(textGeoStop, textMatStop);
+
+                textGame.position.set(-100, 0, 20);
+                textStop.position.set(30, 0, 20);
+
+                scene.add(textGame);
+                scene.add(textStop);
+            });
+
+            let gltfLoader = new GLTFLoader();
+
+            gltfLoader.load('moon/scene.gltf', function (model) {
+                let moon = model.scene.children[0];
+                moon.scale.set(0.1, 0.1, 0.1);
+                moon.position.set(0, 0, 0);
+                scene.add(model.scene);
+            });
+            gltfLoader.load('rocket/scene.gltf', function (model) {
+                let rocket = model.scene.children[0];
+                rocket.scale.set(200, 200, 200);
+                rocket.position.set(0, -16, -30);
+                scene.add(model.scene);
+            });
+
+            animate();
+        }
+        function animate() {
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+        init();
+
+    </script>
 </body>
 
 </html>
